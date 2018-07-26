@@ -21,7 +21,7 @@
 
     <script>
         var Attack_Roll;
-        var Dmg = (1,6) + Str;
+        
         var Hit = Str;
 
         var Str = 3;
@@ -40,11 +40,12 @@
         Attack_Roll = Roll(1,20) + Dex
         if (Attack_Roll >= Ac) {
             console.log("Hit");
+            return Dmg;
         } else { Attack_Roll < Ac
             console.log("miss");
         }
         }
-
+        var Dmg = Roll(1,6) + Str;
     </script>
 
 </html>

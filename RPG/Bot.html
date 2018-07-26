@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>RPG</title>
+        <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.4/lodash.min.js"></script>
+    </head>
+    <body>
+        <div>Welcome</div>
+        <label for="options">Choose your target</label><br>
+        <input type="checkbox" name="enemy" value="En1">Orc 1<br>
+
+        <p>
+            <label for="options">Choose your weapon</label><br>
+            <input type="checkbox" name="weapon" value="wep1">Sword<br>
+        </p>
+        <p>
+            <input type="button" name="attack">Attack!<br>
+        </p>
+   </body>
+
+    <script>
+        var Attack_Roll;
+        var Dmg = (1,6) + Str;
+        var Hit = Str;
+
+        var Str = 3;
+        var Dex = 2;
+        var Con = 2;
+
+        var Ac = Dex + Con + 8;
+
+        let Roll = (numOne, numTwo) => {
+            var numThree = 0;
+            for (var i = 0;i < numOne ; i++) 
+            var numThree = Math.floor(Math.random() * numTwo) + 1 + numThree;
+            return numThree;
+    }
+        let Attack = () => {
+        Attack_Roll = Roll(1,20) + Dex
+        if (Attack_Roll >= Ac) {
+            console.log("Hit");
+        } else { Attack_Roll < Ac
+            console.log("miss");
+        }
+        }
+
+    </script>
+
+</html>

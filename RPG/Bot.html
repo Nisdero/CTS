@@ -15,8 +15,11 @@
             <input type="checkbox" name="weapon" value="wep1">Sword<br>
         </p>
         <p>
-            <input type="button" name="attack">Attack!<br>
+            <button onclick="Attack()">Attack!</button>
         </p>
+        <p id="hit/miss"></p>
+        <p id="Alive Y/N"></p>
+        <p id="Dmg"></p>
    </body>
 
     <script>
@@ -24,33 +27,41 @@
         let Roll = (numOne, numTwo) => {
             var numThree = 0;
             for (var i = 0;i < numOne ; i++) 
-            var numThree = Math.floor(Math.random() * numTwo) + 1 + numThree;
+            var numThree = Math.floor(Math.random(15 - 3) * numTwo) + 1 + numThree;
             return numThree;
+        }
         
-        let Nisdero = {
-            Str: 3,
-            Dex: 4,
-            Con: 2,
-            Ac: 15,
-            Dmg: Roll(1,6) + Nisdero.Str
-        }
-        let Orc = {
-            Str: 4,
-            Dex: 2,
-            Con: 3,
-            Ac: 13,
-            Dmg: Roll(1,10) + Orc.Str
-        }
+        let Sword = 3;
+        let Axe = 5;
+
+        var Orc_Hp = 15;
+        var Player_Hp = 20;
 
 
-    }
-        let Attack = () => {
-        Attack_Roll = Roll(1,20) + Nisdero.Dex
-        if (Attack_Roll >= Orc.Ac) {
-            console.log("Hit");
-            return Nisdero.Dmg;
-        } else { console.log("miss");
+        const Attack = () => {
+        Attack_Roll = Roll(1,20) + 3;
+        if (Attack_Roll >= 13) {
+            document.getElementById("hit/miss").innerHTML = "Hit";
+            Orc_Hp = Orc_Hp - 6;
+            if (Orc_Hp >= 1) {
+            document.getElementById("Alive Y/N").innerHTML = "Alive";
+                document.getElementById("Dmg").innerHTML = Orc_Hp;
+            } else { document.getElementById("Alive Y/N").innerHTML = "Dead"; }
+        } else { document.getElementById("hit/miss").innerHTML = "Miss";
         }
+        }
+
+        let O_Attack = () => {
+            Attack_Roll = Roll(1,20 + 2);
+            if (Attack_Roll >= 15) {
+                document.getElementById("hit/miss").innerHTML = "Hit";
+                Player_Hp = Player_Hp - 8;
+                if (Player_Hp >= 1) {
+                    document.getElementById("Alive Y/N").innerHTML = "Alive";
+                    document.getElementById("Dmg").innerHTML = Player_Hp;
+                } else { document.getElementById("Alive Y/N").innerHTML = "Dead"; }
+            } else { document.getElementById("hit/miss").innerHTML = "Miss";
+            }
         }
     </script>
 
